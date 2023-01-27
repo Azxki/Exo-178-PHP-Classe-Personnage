@@ -1,11 +1,11 @@
 <?php
 
 // Ma classe s'apelle personnage
-class Personnage {
+#[AllowDynamicProperties] class Personnage {
 
     // La propriété id est privée, je ne peux pas la modifier ou la lire directement en dehors de cette classe
     private $id;
-    public $nom;
+    private $nom;
     public $x;
     public $y;
 
@@ -19,7 +19,21 @@ class Personnage {
     // Méthode permettant de déplacer le personnage vers la droite
     public function walkRight() {
         $this->x += 1;
+    }
 
+    // Méthode permettant de déplacer le personnage vers la gauche
+    public function walkLeft() {
+        $this->x -= 1;
+    }
+
+    // Méthode permettant de déplacer le personnage vers la droite
+    public function walkTop() {
+        $this->y += 1;
+    }
+
+    // Méthode permettant de déplacer le personnage vers la droite
+    public function walkBottom() {
+        $this->y -= 1;
     }
 
     // Setter permettant de définir l'attribut privé id
@@ -31,4 +45,22 @@ class Personnage {
     public function getId() {
         return $this->id;
     }
+
+    /**
+     * @return string
+     */
+    public function getNom(): string
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @param string $nom
+     */
+    public function setNom(string $nom): void
+    {
+        $this->nom = $nom;
+    }
+
+
 } 
